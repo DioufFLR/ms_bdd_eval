@@ -6,3 +6,9 @@ WHERE customers.Country = 'France';
 
 -- 2 Liste des produits vendus par le fournisseur 'Exotic Liquids'
 
+SELECT products.ProductName AS 'Produit', products.UnitPrice AS 'Prix'
+FROM products
+JOIN suppliers ON suppliers.SupplierID = products.SupplierID
+WHERE suppliers.CompanyName = 'Exotic Liquids'
+
+-- 3 Nombre de produits mis à disposition par les fournisseurs français
