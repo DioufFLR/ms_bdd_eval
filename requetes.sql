@@ -22,3 +22,12 @@ ORDER BY NbreProduits DESC;
 
 -- 4 Liste des clients français ayant passé plus de 10 commandes
 
+SELECT customers.CompanyName AS 'Client', COUNT(orders.OrderID) AS 'Nbre commande'
+FROM customers
+JOIN orders ON orders.CustomerID = customers.CustomerID
+WHERE customers.Country = 'France' 
+GROUP BY customers.CompanyName
+HAVING COUNT(orders.OrderID) > 10;
+
+-- 5 Liste des clients dont le montant cumulé de toutes les commandes passées est supérieur à 3000 $
+
